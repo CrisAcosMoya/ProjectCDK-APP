@@ -14,18 +14,18 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '10.x'
+    versionSpec: '16.x'
   displayName: 'Install Node.js'
 
 - script: |
-    npm install -g aws-cdk
+    sudo npm install -g aws-cdk
     npm install
     npm run build
     cdk synth
   displayName: 'npm install and build'
 - task: AWSShellScript@1 
   inputs:
-    awsCredentials: ''
+    awsCredentials: 'cdk-arcdep'
     regionName: 'us-east-1'
     scriptType: 'inline'
     inlineScript: 'cdk deploy --ci --require-approval never'
