@@ -18,6 +18,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    cd cristhofer-acosta
     sudo npm install -g aws-cdk
     npm install
     npm run build
