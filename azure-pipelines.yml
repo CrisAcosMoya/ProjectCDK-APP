@@ -21,9 +21,10 @@ steps:
     cd cristhofer-acosta
     sudo npm install -g aws-cdk
     npm install
-    npm run build
+    cdk boostap
+    cdk deploy
     
-  displayName: 'npm install and build'
+  displayName: ''
 - task: AWSShellScript@1 
   inputs:
     awsCredentials: 'cdk-arcdep'
@@ -33,4 +34,4 @@ steps:
     disableAutoCwd: true
     workingDirectory: '$(System.DefaultWorkingDirectory)'
     failOnStandardError: false
-  displayName: 'cdk deploy'
+  displayName: 'cdk-run'
