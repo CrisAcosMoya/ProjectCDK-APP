@@ -18,22 +18,19 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    cd cristhofer-acosta
     sudo npm install -g aws-cdk
     npm install
     cdk bootstrap
     cdk deploy
     
-  displayName: ''
+  displayName: 'npm install and deploy'
 - task: AWSShellScript@1 
   inputs:
     awsCredentials: 'cdk-arcdep'
     regionName: 'us-east-1'
     scriptType: 'inline'
-    inlineScript:
-      cd cristhofer-acosta
-     'cdk deploy --ci --require-approval never'
+    inlineScript: 'cdk deploy --ci --require-approval never'
     disableAutoCwd: true
     workingDirectory: '$(System.DefaultWorkingDirectory)'
     failOnStandardError: false
-  displayName: 'cdk-run'
+  displayName: 'cdk deploy'
