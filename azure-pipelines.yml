@@ -29,7 +29,9 @@ steps:
     awsCredentials: 'cdk-arcdep'
     regionName: 'us-east-1'
     scriptType: 'inline'
-    inlineScript: 'cdk deploy --ci --require-approval never'
+    inlineScript: |
+     cd cdk-project-t
+    'cdk deploy --ci --require-approval never'
     disableAutoCwd: true
     workingDirectory: '$(System.DefaultWorkingDirectory)'
     failOnStandardError: false
