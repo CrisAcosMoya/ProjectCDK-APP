@@ -19,6 +19,7 @@ steps:
 
 - script: |
     sudo npm install -g aws-cdk
+    cd cdk-project-t
     npm install
     npm run build
     cdk synth
